@@ -1,329 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuickBite Restaurant - Modern Fast Food Demo</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-        header {
-            background-color: #d32f2f;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        header h1 {
-            margin: 0;
-            font-size: 36px;
-        }
-        nav a {
-            color: white;
-            margin: 0 20px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 18px;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .hero {
-            background-image: url('https://media.istockphoto.com/id/1390005458/photo/interior-of-a-modern-cozy-italian-restaurant.jpg?s=612x612&w=0&k=20&c=M-sy_IWp4Bpl3Gq0M2opwc9-0jxewFTn8YLWQNqY68I=');
-            background-size: cover;
-            background-position: center;
-            padding: 120px 20px;
-            text-align: center;
-            color: white;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-        }
-        .hero h2 {
-            font-size: 50px;
-            margin: 0 0 20px;
-        }
-        .hero p {
-            font-size: 26px;
-            margin: 20px 0;
-        }
-        .cta-button {
-            background-color: #ffd700;
-            color: #d32f2f;
-            font-weight: bold;
-            padding: 18px 36px;
-            border: none;
-            border-radius: 50px;
-            font-size: 22px;
-            cursor: pointer;
-            margin: 15px;
-            transition: all 0.3s;
-        }
-        .cta-button:hover {
-            transform: scale(1.1);
-            background-color: #ffc107;
-        }
-        .menu-section {
-            max-width: 1300px;
-            margin: 50px auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 20px;
-        }
-        .menu-item {
-            background-color: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-            transition: transform 0.4s;
-        }
-        .menu-item:hover {
-            transform: translateY(-12px);
-        }
-        .menu-item img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
-        .menu-item h3 {
-            margin: 20px;
-            text-align: center;
-            font-size: 24px;
-        }
-        .menu-item p {
-            text-align: center;
-            font-size: 22px;
-            font-weight: bold;
-            color: #d32f2f;
-            margin: 10px 0;
-        }
-        .menu-item button {
-            display: block;
-            width: 85%;
-            margin: 20px auto 25px;
-            background-color: #d32f2f;
-            color: white;
-            border: none;
-            padding: 14px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 16px;
-        }
-        .menu-item button:hover {
-            background-color: #b71c1c;
-        }
-        .order-form {
-            max-width: 700px;
-            margin: 60px auto;
-            padding: 40px;
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-        }
-        .order-form h2 {
-            text-align: center;
-            color: #d32f2f;
-            font-size: 32px;
-            margin-bottom: 30px;
-        }
-        .order-form input, .order-form select {
-            width: 100%;
-            padding: 14px;
-            margin: 12px 0;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            font-size: 16px;
-        }
-        .order-form button {
-            background-color: #d32f2f;
-            color: white;
-            font-weight: bold;
-            padding: 18px;
-            width: 100%;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 20px;
-            margin-top: 20px;
-        }
-        .order-form button:hover {
-            background-color: #b71c1c;
-        }
-        #recommendation {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 35px;
-            border-radius: 15px;
-            box-shadow: 0 0 30px rgba(0,0,0,0.4);
-            z-index: 1000;
-            text-align: center;
-            max-width: 450px;
-            width: 90%;
-        }
-        #recommendation h3 {
-            color: #d32f2f;
-        }
-        footer {
-            background-color: #d32f2f;
-            color: white;
-            text-align: center;
-            padding: 30px;
-            margin-top: 60px;
-            font-size: 16px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elegant View Restaurant Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background-color: #f8f8f8;
+      color: #333;
+    }
+    header {
+      background-color: #d35400;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 { margin: 0; }
+    section { padding: 20px; }
+    .menu-item {
+      margin-bottom: 10px;
+    }
+    button {
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #2ecc71;
+    }
+    label { margin-left: 10px; }
+  </style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <h1>QuickBite Restaurant</h1>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#menu">Menu</a>
-            <a href="#order">Order Now</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+<header>
+  <h1>Elegant View Restaurant</h1>
+  <h2 id="greeting"></h2
+</header>
 
-    <!-- Hero with Strong CTA -->
-    <section id="home" class="hero">
-        <h2>Delicious Meals, Delivered Fast</h2>
-        <p>Order Online • Fresh Ingredients • Quick Delivery</p>
-        <button class="cta-button" onclick="document.getElementById('order').scrollIntoView({behavior: 'smooth'});">Order Now</button>
-        <button class="cta-button" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'});">Explore Menu</button>
-    </section>
+<section>
+  <h3>Today's Menu</h3>
 
-    <!-- Menu Section with Real Dish Images -->
-    <section id="menu" class="menu-section">
-        <h2 style="text-align: center; grid-column: 1 / -1; font-size: 40px; color: #d32f2f; margin-bottom: 20px;">Our Popular Dishes</h2>
-        
-        <div class="menu-item">
-            <img src="https://allnigerianfoods.com/wp-content/uploads/jollof_rice_recipe1.jpg" alt="Jollof Rice">
-            <h3>Jollof Rice</h3>
-            <p>₦600</p>
-            <button onclick="addToCart('Jollof Rice', 600)">Add to Cart</button>
-        </div>
-        
-        <div class="menu-item">
-            <img src="https://www.allnigerianrecipes.com/wp-content/uploads/2019/03/nigerian-fried-rice1.jpg" alt="Fried Rice">
-            <h3>Fried Rice</h3>
-            <p>₦600</p>
-            <button onclick="addToCart('Fried Rice', 600)">Add to Cart</button>
-        </div>
-        
-        <div class="menu-item">
-            <img src="https://sisijemimah.com/wp-content/uploads/2017/06/oven-baked-barbecued-chicken-2.jpg" alt="Grilled Chicken">
-            <h3>Grilled Chicken</h3>
-            <p>₦2000</p>
-            <button onclick="addToCart('Grilled Chicken', 2000)">Add to Cart</button>
-        </div>
-        
-        <div class="menu-item">
-            <img src="https://travelandmunchies.com/wp-content/uploads/2025/03/IMG_9666-scaled.jpg" alt="Pounded Yam & Egusi">
-            <h3>Pounded Yam & Egusi</h3>
-            <p>₦1500</p>
-            <button onclick="addToCart('Pounded Yam & Egusi', 1500)">Add to Cart</button>
-        </div>
-    </section>
+  <div class="menu-item">
+    <input type="checkbox" id="pizza" data-price="1500">
+    <label for="pizza">🍕 Pizza - 1500 Naira</label>
+  </div>
+  <div class="menu-item">
+    <input type="checkbox" id="pasta" data-price="1200">
+    <label for="pasta">🍝 Pasta - 1200 Naira</label>
+  </div>
+  <div class="menu-item">
+    <input type="checkbox" id="burger" data-price="1000">
+    <label for="burger">🍔 Burger - 1000 Naira</label>
+  </div>
 
-    <!-- Order Form -->
-    <section id="order" class="order-form">
-        <h2>Place Your Order Online</h2>
-        <form id="orderForm">
-            <label for="name">Full Name:</label>
-            <input type="text" id="name" required>
-            
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" required>
-            
-            <label for="address">Delivery Address:</label>
-            <input type="text" id="address" required>
-            
-            <label for="items">Your Selected Items:</label>
-            <select id="items" multiple size="6"></select>
-            
-            <label>Total: ₦<span id="total">0</span></label>
-            
-            <button type="submit">Complete Order</button>
-        </form>
-    </section>
+  <p>Total: <span id="total">0</span> Naira</p>
+  <button id="orderBtn">Place Order via WhatsApp</button>
+</section>
 
-    <!-- Recommendation Popup -->
-    <div id="recommendation">
-        <h3>Recommended for You!</h3>
-        <p id="rec-text"></p>
-        <button class="cta-button" onclick="closeRec()">Okay</button>
-    </div>
+<section>
+  <h3>Opening Hours</h3>
+  <p id="hours"></p>
+</section>
 
-    <!-- Footer -->
-    <footer id="contact">
-        <p>Contact: +234 800 000 0000 | info@quickbite.com</p>
-        <p>&copy; 2025 QuickBite Restaurant – Professional Website Demo</p>
-        <p style="font-size:14px; margin-top:10px;">This is a demo showing modern features like online ordering, chatbots, and automation.</p>
-    </footer>
+<script>
+  // Dynamic greeting
+  const hour = new Date().getHours();
+  const greet = hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening";
+  document.getElementById("greeting").innerText = greet + ", welcome to Elegant View!";
 
-    <!-- JavaScript -->
-    <script>
-        let cart = [];
-        let total = 0;
+  // Dynamic opening hours
+  const openHour = 9;
+  const closeHour = 22;
+  const now = new Date().getHours();
+  document.getElementById("hours").innerText = now >= openHour && now < closeHour ? 
+    "We are OPEN now! Come visit us." : 
+    "We are CLOSED now. We open at 9:00 AM.";
 
-        function addToCart(item, price) {
-            cart.push({item, price});
-            total += price;
-            updateCart();
-            showRecommendation(item);
-        }
+  // Menu automation
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  const totalEl = document.getElementById('total');
+  const orderBtn = document.getElementById('orderBtn');
 
-        function updateCart() {
-            const select = document.getElementById('items');
-            select.innerHTML = '';
-            cart.forEach(entry => {
-                const option = document.createElement('option');
-                option.text = `${entry.item} - ₦${entry.price}`;
-                select.add(option);
-            });
-            document.getElementById('total').textContent = total;
-        }
+  function updateOrder() {
+    let total = 0;
+    let itemsOrdered = [];
+    checkboxes.forEach(cb => {
+      if(cb.checked) {
+        total += Number(cb.dataset.price);
+        itemsOrdered.push(cb.nextElementSibling.innerText.split(" - ")[0]);
+      }
+    });
+    totalEl.innerText = total;
 
-        function showRecommendation(selected) {
-            let rec = '';
-            if (selected.toLowerCase().includes('rice')) {
-                rec = 'Great choice! Add Grilled Chicken for a perfect combo?';
-            } else if (selected.toLowerCase().includes('chicken')) {
-                rec = 'Pair it with Jollof or Fried Rice for extra satisfaction!';
-            }
-            if (rec) {
-                document.getElementById('rec-text').textContent = rec;
-                document.getElementById('recommendation').style.display = 'block';
-            }
-        }
+    // Update WhatsApp order link
+    const orderText = itemsOrdered.length ? 
+      "Hello! I would like to order: " + itemsOrdered.join(", ") + ". Total: " + total + " Naira." :
+      "Hello! I would like to place an order.";
+    orderBtn.href = "https://wa.me/234XXXXXXXXXX?text=" + encodeURIComponent(orderText);
+  }
 
-        function closeRec() {
-            document.getElementById('recommendation').style.display = 'none';
-        }
+  checkboxes.forEach(cb => cb.addEventListener('change', updateOrder));
 
-        document.getElementById('orderForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            if (cart.length > 0) {
-                alert(`Order Received!\nTotal: ₦${total}\nWe'll deliver to you soon. Thank you!`);
-                cart = [];
-                total = 0;
-                updateCart();
-            } else {
-                alert('Please add items to your cart first!');
-            }
-        });
-    </script>
+  // Initialize
+  updateOrder();
+</script>
 
 </body>
 </html>
