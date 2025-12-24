@@ -1,115 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elegant View Restaurant Demo</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0; padding: 0;
-      background-color: #f8f8f8;
-      color: #333;
-    }
-    header {
-      background-color: #d35400;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    h1 { margin: 0; }
-    section { padding: 20px; }
-    .menu-item {
-      margin-bottom: 10px;
-    }
-    button {
-      background-color: #27ae60;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-    button:hover {
-      background-color: #2ecc71;
-    }
-    label { margin-left: 10px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickBite Restaurant</title>
+    <script>
+        order = [];
+        function addToCart(item, price) {
+            order.push({item: item, price: price});
+            updateCart();
+        }
+        function updateCart() {
+            let total = order.reduce((sum, i) => sum + i.price, 0);
+            document.getElementById('cartTotal').innerText = total;
+        }
+        function sendOrder() {
+            let message = "Order:\n" + order.map(o => `${o.item} - ₦${o.price}`).join('\n') + `\nTotal: ₦${order.reduce((sum, i) => sum + i.price, 0)}`;
+            let name = document.getElementById('name').value;
+            let phone = document.getElementById('phone').value;
+            let address = document.getElementById('address').value;
+            let notes = document.getElementById('notes').value;
+            message = `Name: ${name}\nPhone: ${phone}\nAddress: ${address}\nNotes: ${notes}\n\n${message}`;
+            let whatsappUrl = `https://wa.me/234XXXXXXXXXX?text=${encodeURIComponent(message)}`; // Replace with actual number
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+    <style>
+        body { background: #0d1117; color: #c9d1d9; font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        header { background: #1e2329; padding: 20px; text-align: center; }
+        nav a { color: #58a6ff; margin: 0 15px; text-decoration: none; }
+        .hero { background: url('hero-bg.jpg') center/cover; padding: 100px 20px; text-align: center; color: white; }
+        .menu-item { margin: 20px; text-align: center; }
+        .menu-item img { width: 300px; border-radius: 10px; }
+        button { background: #238636; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #2ea043; }
+        .order-form { max-width: 600px; margin: 40px auto; padding: 20px; background: #161b22; border-radius: 10px; }
+        input, select, textarea { width: 100%; padding: 10px; margin: 10px 0; background: #0d1117; border: 1px solid #30363d; color: #c9d1d9; }
+        #welcomePopup, #recommendationPopup, #leadCapturePopup { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; }
+        .popup-content { background: #161b22; padding: 30px; border-radius: 10px; text-align: center; color: white; }
+    </style>
 </head>
 <body>
+    <header>
+        <h1>QuickBite Restaurant</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#order">Order Now</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-<header>
-  <h1>Elegant View Restaurant</h1>
-  <h2 id="greeting"></h2
-</header>
+    <section id="home" class="hero">
+        <h2>Delicious Meals, Delivered Fast</h2>
+        <p>Order Online • Fresh Ingredients • Quick Delivery</p>
+        <button class="cta-button" onclick="document.getElementById('order').scrollIntoView()">Order Now</button>
+        <button class="whatsappButton" onclick="window.open('https://wa.me/234XXXXXXXXXX')">WhatsApp Order</button>
+    </section>
 
-<section>
-  <h3>Today's Menu</h3>
+    <section id="menu" class="menu-section">
+        <h2 style="text-align:center; grid-column:1 / -1; font-size:40px; color:#ff7b72;">Our Menu</h2>
+        <div class="menu-item">
+            <img src="https://allnigerianfoods.com/wp-content/uploads/jollof-rice.jpg" alt="Jollof Rice">
+            <h3>Jollof Rice</h3>
+            <p>₦600</p>
+            <button onclick="addToCart('Jollof Rice', 600)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://www.allnigerianrecipes.com/wp-content/uploads/2017/06/fried-rice.jpg" alt="Fried Rice">
+            <h3>Fried Rice</h3>
+            <p>₦600</p>
+            <button onclick="addToCart('Fried Rice', 600)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://sisijemimah.com/wp-content/uploads/2017/06/oven-grilled-chicken.jpg" alt="Grilled Chicken">
+            <h3>Grilled Chicken</h3>
+            <p>₦2000</p>
+            <button onclick="addToCart('Grilled Chicken', 2000)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://www.preciouscore.com/wp-content/uploads/2023/03/Pounded-Yam-&-Egusi.jpg" alt="Pounded Yam & Egusi">
+            <h3>Pounded Yam & Egusi</h3>
+            <p>₦1500</p>
+            <button onclick="addToCart('Pounded Yam & Egusi', 1500)">Add to Cart</button>
+        </div>
+        <!-- Add more menu items as needed -->
+    </section>
 
-  <div class="menu-item">
-    <input type="checkbox" id="pizza" data-price="1500">
-    <label for="pizza">🍕 Pizza - 1500 Naira</label>
-  </div>
-  <div class="menu-item">
-    <input type="checkbox" id="pasta" data-price="1200">
-    <label for="pasta">🍝 Pasta - 1200 Naira</label>
-  </div>
-  <div class="menu-item">
-    <input type="checkbox" id="burger" data-price="1000">
-    <label for="burger">🍔 Burger - 1000 Naira</label>
-  </div>
+    <section id="order" class="order-form">
+        <h2>Place Your Order Online</h2>
+        <form>
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" required>
 
-  <p>Total: <span id="total">0</span> Naira</p>
-  <button id="orderBtn">Place Order via WhatsApp</button>
-</section>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" required>
 
-<section>
-  <h3>Opening Hours</h3>
-  <p id="hours"></p>
-</section>
+            <label for="address">Delivery Address:</label>
+            <input type="text" id="address" required>
 
-<script>
-  // Dynamic greeting
-  const hour = new Date().getHours();
-  const greet = hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening";
-  document.getElementById("greeting").innerText = greet + ", welcome to Elegant View!";
+            <label for="notes">Additional Notes:</label>
+            <textarea id="notes"></textarea>
 
-  // Dynamic opening hours
-  const openHour = 9;
-  const closeHour = 22;
-  const now = new Date().getHours();
-  document.getElementById("hours").innerText = now >= openHour && now < closeHour ? 
-    "We are OPEN now! Come visit us." : 
-    "We are CLOSED now. We open at 9:00 AM.";
+            <label>Total: ₦<span id="cartTotal">0</span></label>
+            <button type="submit">Complete Order</button>
+            <button type="button" id="whatsappButton" onclick="sendOrder()">Send Order via WhatsApp</button>
+        </form>
+    </section>
 
-  // Menu automation
-  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-  const totalEl = document.getElementById('total');
-  const orderBtn = document.getElementById('orderBtn');
+    <div id="recommendationPopup">
+        <div class="popup-content">
+            <h3>Recommendation for You!</h3>
+            <p>Jollof Rice + Grilled Chicken</p>
+            <button class="cta-button" onclick="closeRec()">Okay</button>
+        </div>
+    </div>
 
-  function updateOrder() {
-    let total = 0;
-    let itemsOrdered = [];
-    checkboxes.forEach(cb => {
-      if(cb.checked) {
-        total += Number(cb.dataset.price);
-        itemsOrdered.push(cb.nextElementSibling.innerText.split(" - ")[0]);
-      }
-    });
-    totalEl.innerText = total;
+    <div id="welcomePopup">
+        <div class="popup-content">
+            <h3>Good Afternoon!</h3>
+            <p>Welcome to QuickBite Restaurant! We are delighted to serve you the best meals.</p>
+            <button class="cta-button" onclick="closeWelcome()">Start Ordering</button>
+        </div>
+    </div>
 
-    // Update WhatsApp order link
-    const orderText = itemsOrdered.length ? 
-      "Hello! I would like to order: " + itemsOrdered.join(", ") + ". Total: " + total + " Naira." :
-      "Hello! I would like to place an order.";
-    orderBtn.href = "https://wa.me/234XXXXXXXXXX?text=" + encodeURIComponent(orderText);
-  }
+    <!-- You can add more popups like lead capture if needed -->
 
-  checkboxes.forEach(cb => cb.addEventListener('change', updateOrder));
-
-  // Initialize
-  updateOrder();
-</script>
-
+    <script>
+        function closeRec() { document.getElementById('recommendationPopup').style.display = 'none'; }
+        function closeWelcome() { document.getElementById('welcomePopup').style.display = 'none'; }
+        // Show welcome popup on load (optional)
+        window.onload = function() {
+            document.getElementById('welcomePopup').style.display = 'flex';
+        }
+    </script>
 </body>
 </html>
