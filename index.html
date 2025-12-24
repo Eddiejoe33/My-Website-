@@ -5,44 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuickBite Restaurant</title>
     <style>
-        body { margin: 0; font-family: 'Arial', sans-serif; }
+        body { margin: 0; font-family: 'Arial Black', 'Arial', sans-serif; background: #000; color: #fff; }
         .hero {
-            background-image: url('images/hero-bg.jpg'); /* Replace with your image path */
+            background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('images/hero-bg.jpg'); /* Your image here */
             background-size: cover;
             background-position: center;
-            height: 80vh; /* Full viewport height */
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: white; /* For dark backgrounds */
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* For readability */
         }
         .hero h1 {
-            font-size: 4rem; /* Big and bold */
-            font-weight: bold;
+            font-size: 7rem;
+            font-weight: 900;
             margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            color: #ff4500;
+            text-shadow: 0 0 30px rgba(255,69,0,0.9), 0 0 60px rgba(255,69,0,0.5);
         }
         .hero h2 {
-            font-size: 2.5rem;
-            margin: 10px 0;
+            font-size: 3.5rem;
+            margin: 15px 0;
+            color: #fff;
+            text-shadow: 0 0 15px rgba(255,255,255,0.7);
+        }
+        .hero p {
+            font-size: 2rem;
+            margin: 30px 0;
+            color: #ffdb58;
+        }
+        .order-btn {
+            background: linear-gradient(#ff4500, #ff6347);
+            color: white;
+            padding: 20px 50px;
+            font-size: 2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            box-shadow: 0 0 25px rgba(255,69,0,0.8);
+            transition: all 0.4s;
+        }
+        .order-btn:hover {
+            transform: scale(1.15);
+            box-shadow: 0 0 40px rgba(255,69,0,1);
         }
         .content {
-            padding: 50px;
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #111;
             text-align: center;
+        }
+        .content h3 { 
+            font-size: 2.5rem; 
+            color: #ff4500; 
+            margin-bottom: 30px;
+        }
+        hr { 
+            border: 2px solid #ff4500; 
+            margin: 50px auto; 
+            width: 60%; 
         }
     </style>
 </head>
 <body>
     <section class="hero">
-        <h1>QuickBite Restaurant</h1>
-        <h2>Place Your Order Online</h2>
+        <h1>QuickBite</h1>
+        <h2>Restaurant</h2>
+        <p>Fast • Fresh • Irresistibly Delicious</p>
+        <button class="order-btn">Order Now via WhatsApp</button>
     </section>
+
     <section class="content">
-        <p>Complete Order Send Order via WhatsApp</p>
-        <!-- Add your menu, order form, etc. here -->
+        <h3>How to Place Your Order</h3>
+        <p>Select your items, complete the order, and send it directly via WhatsApp – quick and easy delivery!</p>
         <hr>
+        <!-- Add your full menu, prices, items, or more details here -->
+        <p>Your menu and order instructions go here...</p>
+        <!-- Example: <ul><li>Burger Combo - $10</li></ul> -->
     </section>
 </body>
 </html>
